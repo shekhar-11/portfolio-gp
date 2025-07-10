@@ -24,9 +24,9 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Upload site files
-        uses: actions/upload-pages-artifact@v4  # ✅ updated to v4
+        uses: actions/upload-pages-artifact@v3  # ✅ this is correct and not deprecated
         with:
-          path: .  # or change to your site folder like 'dist' or 'build'
+          path: .  # or change to your site folder like 'build' or 'dist'
 
       - name: Deploy to GitHub Pages
         id: deployment
