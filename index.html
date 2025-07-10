@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raj Shekhar - Backend Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: #111;
+            padding: 1rem 0;
+            border-bottom: 1px solid #333;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00ff88;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #00ff88;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+            background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            color: #00ff88;
+            margin-bottom: 1rem;
+        }
+
+        .hero .mission {
+            font-size: 1.1rem;
+            color: #ccc;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border: 2px solid #00ff88;
+            background: transparent;
+            color: #00ff88;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .btn:hover {
+            background: #00ff88;
+            color: #000;
+        }
+
+        .btn.primary {
+            background: #00ff88;
+            color: #000;
+        }
+
+        .btn.primary:hover {
+            background: transparent;
+            color: #00ff88;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #00ff88;
+            text-align: center;
+        }
+
+        .section-title::before {
+            content: '$ ';
+            color: #666;
+        }
+
+        /* About */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: #1a1a1a;
+            padding: 1.5rem;
+            border: 1px solid #333;
+        }
+
+        .skill-category h3 {
+            color: #00ff88;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: #333;
+            color: #e0e0e0;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.9rem;
+            border: 1px solid #555;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: #1a1a1a;
+            padding: 2rem;
+            border: 1px solid #333;
+            transition: border-color 0.2s;
+        }
+
+        .project-card:hover {
+            border-color: #00ff88;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            color: #00ff88;
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: #ccc;
+            margin-bottom: 1rem;
+        }
+
+        .project-tech {
+            font-size: 0.9rem;
+            color: #888;
+            font-style: italic;
+        }
+
+        /* Contact */
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            color: #00ff88;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 0.8rem;
+            background: #222;
+            border: 1px solid #555;
+            color: #e0e0e0;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #00ff88;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: #00ff88;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+
+        .social-links a:hover {
+            color: #fff;
+        }
+
+        /* Footer */
+        footer {
+            background: #111;
+            padding: 2rem 0;
+            text-align: center;
+            color: #888;
+            border-top: 1px solid #333;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">RJ</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Raj Shekhar</h1>
+            <p class="subtitle">Backend Developer | DevOps Enthusiast</p>
+            <p class="mission">Building scalable backend systems and automating workflows.</p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn primary">View Projects</a>
+                <a href="#contact" class="btn">Contact</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <p>I'm a passionate backend developer with strong proficiency in Node.js and Express, building robust server-side applications and RESTful APIs. My experience spans Git workflows, GitHub Actions, and basic CI/CD implementations. I'm comfortable with Linux environments and system-level scripting, always seeking to automate processes and improve infrastructure reliability. My goal is to create scalable backend systems that power seamless user experiences while maintaining high performance and security standards.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Backend</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Express.js</span>
+                        <span class="skill-tag">REST APIs</span>
+                        <span class="skill-tag">MongoDB</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>DevOps Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git/GitHub</span>
+                        <span class="skill-tag">Shell Scripting</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Linux</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Frontend (Familiar)</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">React.js</span>
+                        <span class="skill-tag">Tailwind CSS</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Other</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Postman</span>
+                        <span class="skill-tag">Firebase </span>
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">TensorFlow.js</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3 class="project-title">🧩 tradeXcamp</h3>
+                    <p class="project-description">Built a full-stack platform enabling seamless buying, selling, and exchanging of items within a campus community.</p>
+                    <p class="project-tech">→ React.js (frontend), Tailwind CSS (styling), Node.js + Express (backend), MongoDB (database), Firebase + Google OAuth (authentication)</p>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">🗳️ NodePoll</h3>
+                    <p class="project-description">A secure backend-driven voting platform with user auth, candidate management, and vote tracking.</p>
+                    <p class="project-tech">→ Node.js (Express), MongoDB, RESTful API routes, tested using Postman for functionality assurance</p>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">🛫 C-Wings</h3>
+                    <p class="project-description">Booking system built in C with functionality for seat reservation, cancellation, and fare calculations.</p>
+                    <p class="project-tech">→ Used linked lists for data structures and JSON for persistent data storage</p>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">🚗 GFS (Gesture Finger Steer)</h3>
+                    <p class="project-description">Controlled a virtual vehicle using finger gestures in real time.</p>
+                    <p class="project-tech">→ React.js (UI & webcam), TensorFlow.js Handpose model (gesture detection), Robot.js (keyboard control)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-content">
+                <p>Let's build something amazing together. Reach out for collaborations or opportunities.</p>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn primary">Send Message</button>
+                </form>
+                <div class="social-links">
+                    <a href="https://github.com/shekhar-11" target="_blank">GitHub</a>
+                    <a href="https://linkedin.com/in/rajs11" target="_blank">LinkedIn</a>
+                    <a href="mailto:raj.csdev@gmail.com">Email</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Raj Shekhar. Built with minimal code for maximum performance.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Contact form submission
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I\'ll get back to you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
